@@ -12,7 +12,7 @@ class Triangle
       :isosceles
     elsif @side1 != @side2 || @side2 != @side3 || @side1 != @side3
       :scalene
-    else (@side1<0 || @side2<0 || @side3<0) || (@side1+@side2<@side3 || @side2+@side3<@side1 || @side1+@side3<@side2)
+    else 
       begin
           raise TriangleError
         rescue TriangleError => error
@@ -23,7 +23,9 @@ class Triangle
   
   class TriangleError < StandardError
     def message
+      if (@side1<0 || @side2<0 || @side3<0) || (@side1+@side2<@side3 || @side2+@side3<@side1 || @side1+@side3<@side2)
         "invalid"
+      end
     end
   end
 
