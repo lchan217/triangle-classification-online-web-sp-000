@@ -30,5 +30,4 @@ class Triangle
       "invalid"
     end
   end
-
 end
